@@ -5,3 +5,16 @@ parâmetros, “ax2”, “bx” e “c”, de tal modo que na equação: 3x² -
 que os resultados sejam iguais. Caso o delta seja negativo, retorne, ao invés do vetor, um string com a frase:
 “Delta é negativo”.*/
 
+// Bhaskara: x = (-b+-√b²-4ac)/2a
+
+function bhaskara(a,b,c) {
+        const delta = (b**2)-(4*a*c)
+        if (delta < 0) {
+            return 'Delta Negativo'
+        } else {
+        const resultado1 = (-b+(Math.sqrt(delta)))/(2*a)
+        const resultado2 = (-b-(Math.sqrt(delta)))/(2*a)
+        return (`X':${resultado1}\nX":${resultado2}\nΔ:${delta}`)
+    }
+}
+console.log(bhaskara(2,12,-14))
