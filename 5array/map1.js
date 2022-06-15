@@ -8,7 +8,11 @@ console.log(resultado)
 
 const soma10 = e => e + 10
 const triplo = e => e * 3
-const paraDinheiro = e => `R$ ${parseFloat(e)}`
+const paraDinheiro = e => `R$ ${parseFloat(e).toFixed(2).replace('.',',')}`
 
 resultado = nums.map(paraDinheiro)
 console.log(resultado)
+
+resultado = nums.map(soma10).map(triplo).map(paraDinheiro) // Enquanto o retorno da função for um array é possível chamar novamente a função map
+console.log(resultado)
+
