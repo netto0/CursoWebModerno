@@ -15,7 +15,7 @@ const resultado = alunos.map(a => a.nota).reduce(function(acumulador, atual,indi
 console.log(`\n${resultado}`)
 
 /*
-*  O método reduce recebe uma callback com 2 argumentos, o primeiro é o valor inicial e o segundo é o valor atual.
+*  O método reduce recebe uma callback com 2 argumentos, o primeiro é o acumulador e o segundo é o valor atual.
 *  Ele funciona da seguinte forma, na primeira volta do laço ele irá utilizar o valor inicial normalmente, 
 *  a partir da segunda volta ele irá utilizar o retorno do laço anterior como valor inicial do laço atual. 
 *  Se nenhum argumento for passado para a função callback ela automaticamente pegará os índices 0 e 1 do array 
