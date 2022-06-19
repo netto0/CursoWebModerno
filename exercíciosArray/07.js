@@ -3,3 +3,21 @@
 // "entre" como inlusivo, ou seja, considerando se numero é igual a minimo ou a maximo. Caso o parâmetro
 // inclusivo não seja informado, seu valor padrão deverá ser false, portanto, a lógica será exclusiva, não
 // considerando se numero é igual a minimo ou a maximo.
+
+function estaEntre(numero, minimo, maximo, inclusivo = false) {
+    if (inclusivo == true) {
+        if (numero >= minimo && numero <= maximo) {
+            entre = true
+        } else {
+            entre = false
+        }
+    } else {
+        if (numero > minimo && numero < maximo) {
+            entre = true
+        } else {
+            entre = false
+        }
+    }
+    return entre
+}
+console.log(estaEntre(2, 1, 4, true))
