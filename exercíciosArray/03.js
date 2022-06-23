@@ -3,7 +3,9 @@
 // X", em que X é o quanto o funcionário ganhou no mês.
 
 function salarioTotal(horas, porHora) {
-    return `Salário igual a R$ ${parseFloat(horas * porHora).toFixed(2).replace('.',',')}`
+    const salarioBruto = horas * porHora
+    const salarioLiquido = salarioBruto - salarioBruto * 0.3
+    return `Salário igual a R$ ${parseFloat(salarioLiquido).toFixed(2).replace('.',',')}`
 }
 
-console.log(salarioTotal(150,40.5))
+console.log(salarioTotal(180,60))

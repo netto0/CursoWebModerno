@@ -3,11 +3,20 @@
     
 const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
 
-function mesExtenso(mes) {  
-    meses.forEach(function(valor,indice){
+ function mesExtenso(mes) {  
+     meses.forEach(function(valor,indice){
         if (mes == indice + 1) {resultado = valor}
     })
-    return resultado
+     return resultado
+}
+
+// OU
+
+console.log(mesExtenso(2))
+
+function mesExtenso(mes) { 
+    const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'] 
+    return meses[mes-1]
 }
 
 console.log(mesExtenso(2))
