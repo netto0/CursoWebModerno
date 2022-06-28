@@ -1,0 +1,1 @@
+{"nome":"Celular","preco":4998,"marca":"Apple"}
