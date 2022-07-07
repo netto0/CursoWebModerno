@@ -15,10 +15,10 @@ chavesVariadas.forEach((vl, ch) => { // No forEach primeiro é passado o valor, 
     console.log(ch, vl)
 })
 
-console.log(chavesVariadas.has(123)) // .has verifica se o objeto contem certa chave
+console.log(chavesVariadas.has(123)) // .has verifica se o Map contem certa chave
 chavesVariadas.delete(123)
 console.log(chavesVariadas.has(123))
-console.log(chavesVariadas.size) // .size exibe a quantidade de elementos de um objeto
+console.log(chavesVariadas.size) // .size exibe a quantidade de elementos de um Map
 
 chavesVariadas.set(123, 'a')
 chavesVariadas.set(123, 'b') // Não podemos ter chaves duplicadas, sempre a última substituirá a primeira
