@@ -1,4 +1,5 @@
 const http = require('http')
+const { CLIENT_RENEG_LIMIT } = require('tls')
 
 const getTurma = letra => {
     const url = `http://files.cod3r.com.br/curso-js/turma${letra}.json`
