@@ -1,5 +1,5 @@
 import pyautogui as bot
-
+import time
 
 # bot.PAUSE = 2
 # bot.hotkey('win','2') # Abre o Menu de Area de Trabalho Remota
@@ -15,11 +15,6 @@ import pyautogui as bot
 # bot.write('esp')
 # bot.press('right')
 
-# DENTRO DA ABA ESPECIAIS
-
-bot.sleep(3)
-
-# Gerar VDGR0017
 
 def gerarVdgr0017(vendedor):
     bot.PAUSE = 1
@@ -44,15 +39,14 @@ def gerarVdgr0017(vendedor):
     bot.press('enter')
     bot.press('esc',3,0.2)
 
+def geraPos():
+    gerarVdgr0017('503')
+    bot.press('enter')
+    gerarVdgr0017('504')
+    bot.press('enter')
+    gerarVdgr0017('507')
+    bot.press('enter')
 
-# gerarVdgr0017('503')
-# bot.press('enter')
-# gerarVdgr0017('504')
-# bot.press('enter')
-# gerarVdgr0017('507')
-# bot.press('enter')
-
-# Gerar VDGR0090 ret
 def gerarVdgr0090vend(vendedor,mes):
     bot.PAUSE = 1
     bot.write('1')
@@ -90,16 +84,13 @@ def gerarVdgr0090vend(vendedor,mes):
     bot.press('enter')
     bot.press('esc',3,0.2)
 
-gerarVdgr0090vend('503','4')
-bot.press('enter')
-gerarVdgr0090vend('504','4')
-bot.press('enter')
-gerarVdgr0090vend('507','4')
-
-# Gerar venda indiv
-
-vendedor = '503'
-
+def geraRet():
+    gerarVdgr0090vend('503','4')
+    bot.press('enter')
+    gerarVdgr0090vend('504','4')
+    bot.press('enter')
+    gerarVdgr0090vend('507','4')
+    bot.press('enter')
 
 def gerarVendaIndiv(vendedor):
     bot.PAUSE = 1
@@ -128,10 +119,48 @@ def gerarVendaIndiv(vendedor):
     bot.press('enter')
     bot.press('esc',3,0.2)
 
-# gerarVendaIndiv('503')
-# bot.press('enter')
-# gerarVendaIndiv('504')
-# bot.press('enter')
-# gerarVendaIndiv('507')
-# bot.press('enter')
+def geraVenda():
+    gerarVendaIndiv('503')
+    bot.press('enter')
+    gerarVendaIndiv('504')
+    bot.press('enter')
+    gerarVendaIndiv('507')
+    bot.press('enter')
+
+def gerarFatGeral():
+    bot.PAUSE = 1
+    bot.write('1')
+    bot.press('enter')
+    bot.write('vdgr0090')
+    bot.press('enter',2)
+    bot.press('enter',9,0.1)
+    bot.write('500')
+    bot.press('enter',4,0.1)
+    bot.press('right',3,0.1)
+    bot.press('enter',26,0.1)
+    bot.press('space')
+    bot.press('enter',3)
+    bot.press('space')
+    bot.press('enter',3)
+    bot.sleep(2)
+    bot.press('tab')
+    bot.press('enter')
+    bot.sleep(2)
+    bot.write('faturamento geral.txt')
+    bot.press('tab')
+    bot.press('tab')
+    bot.press('enter')
+    bot.press('enter')
+    bot.press('esc',3,0.2)
+
+bot.sleep(5)
+
+geraPos()
+time.sleep(2)
+geraVenda()
+time.sleep(2)
+geraRet()
+time.sleep(2)
+gerarFatGeral()
+
 
