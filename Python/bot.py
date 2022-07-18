@@ -1,20 +1,7 @@
+
+
 import pyautogui as bot
 import time
-
-# bot.PAUSE = 2
-# bot.hotkey('win','2') # Abre o Menu de Area de Trabalho Remota
-# bot.write('132.255.233.27:3356')
-# bot.press('enter')
-# bot.hotkey('win','5')
-# bot.write('1')
-# bot.press('enter')
-# bot.write('FIN')
-# bot.write('145145')
-# bot.press('enter',5)
-# bot.sleep(3)
-# bot.write('esp')
-# bot.press('right')
-
 
 def gerarVdgr0017(vendedor):
     bot.PAUSE = 1
@@ -39,7 +26,12 @@ def gerarVdgr0017(vendedor):
     bot.press('enter')
     bot.press('esc',3,0.2)
 
-def geraPos():
+def geraPos(todos=False):
+    if todos:
+        gerarVdgr0017('501')
+        bot.press('enter')
+        gerarVdgr0017('509')
+        bot.press('enter')
     gerarVdgr0017('503')
     bot.press('enter')
     gerarVdgr0017('504')
@@ -84,7 +76,12 @@ def gerarVdgr0090vend(vendedor,mes):
     bot.press('enter')
     bot.press('esc',3,0.2)
 
-def geraRet():
+def geraRet(todos=False):
+    if todos:
+        gerarVdgr0090vend('501', '4')
+        bot.press('enter')
+        gerarVdgr0090vend('509', '4')
+        bot.press('enter')
     gerarVdgr0090vend('503','4')
     bot.press('enter')
     gerarVdgr0090vend('504','4')
@@ -119,7 +116,12 @@ def gerarVendaIndiv(vendedor):
     bot.press('enter')
     bot.press('esc',3,0.2)
 
-def geraVenda():
+def geraVenda(todos=False):
+    if todos:
+        gerarVendaIndiv('501')
+        bot.press('enter')
+        gerarVendaIndiv('509')
+        bot.press('enter')
     gerarVendaIndiv('503')
     bot.press('enter')
     gerarVendaIndiv('504')
@@ -153,14 +155,31 @@ def gerarFatGeral():
     bot.press('enter')
     bot.press('esc',3,0.2)
 
-bot.sleep(5)
+def gerarRelatorios(todos=False):
+    print('10 Segundos para clicar na tela de rotinas externas!')
+    bot.sleep(10)
+    if todos:
+        geraPos(todos=True)
+        time.sleep(2)
+        geraVenda(todos=True)
+        time.sleep(2)
+        geraRet(todos=True)
+        time.sleep(2)
+        gerarFatGeral()
+    else:
+        geraPos()
+        time.sleep(2)
+        geraVenda()
+        time.sleep(2)
+        geraRet()
+        time.sleep(2)
+        gerarFatGeral()
 
-geraPos()
-time.sleep(2)
-geraVenda()
-time.sleep(2)
-geraRet()
-time.sleep(2)
-gerarFatGeral()
+# gerarRelatorios(todos=True)
+time.sleep(5)
+# gerarFatGeral()
+geraRet(todos=True)
+
+
 
 
