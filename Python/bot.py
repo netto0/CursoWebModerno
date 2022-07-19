@@ -8,12 +8,12 @@ def gerarVdgr0017(vendedor):
     bot.write('1')
     bot.press('enter')
     bot.write('vdgr0017')
-    bot.press('enter',2)
-    bot.sleep(1.5)
-    bot.press('enter',58)
+    bot.press('enter',2,0.1)
+    bot.sleep(3)
+    bot.press('enter',58,0.05)
     bot.write(vendedor) # Vendedor
     bot.write(vendedor) # Vendedor
-    bot.press('enter',57)
+    bot.press('enter',57,0.05)
     bot.sleep(3)
     bot.press('tab')
     bot.press('enter')
@@ -44,8 +44,8 @@ def gerarVdgr0090vend(vendedor,mes):
     bot.write('1')
     bot.press('enter')
     bot.write('vdgr0090')
-    bot.press('enter',2)
-    bot.sleep(0.5)
+    bot.press('enter',2,.05)
+    bot.sleep(2)
     bot.write(mes)
     bot.press('enter',10,0.1)
     bot.write(vendedor)
@@ -114,7 +114,7 @@ def gerarVendaIndiv(vendedor):
     bot.press('tab')
     bot.press('enter')
     bot.press('enter')
-    bot.press('esc',3,0.2)
+    bot.press('esc',3,0.5)
 
 def geraVenda(todos=False):
     if todos:
@@ -135,6 +135,7 @@ def gerarFatGeral():
     bot.press('enter')
     bot.write('vdgr0090')
     bot.press('enter',2)
+    bot.sleep(2)
     bot.press('enter',9,0.1)
     bot.write('500')
     bot.press('enter',4,0.1)
@@ -167,18 +168,18 @@ def gerarRelatorios(todos=False):
         time.sleep(2)
         gerarFatGeral()
     else:
-        geraPos()
-        time.sleep(2)
-        geraVenda()
-        time.sleep(2)
-        geraRet()
-        time.sleep(2)
+        # geraPos()
+        # time.sleep(2)
+        # geraVenda()
+        # time.sleep(2)
+        # geraRet()
+        # time.sleep(2)
         gerarFatGeral()
 
-# gerarRelatorios(todos=True)
-time.sleep(5)
+gerarRelatorios()
+# time.sleep(5)
 # gerarFatGeral()
-geraRet(todos=True)
+# geraRet(todos=True)
 
 
 
