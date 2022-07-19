@@ -8,7 +8,7 @@ def gerarVdgr0017(vendedor):
     bot.write('1')
     bot.press('enter')
     bot.write('vdgr0017')
-    bot.press('enter',2,0.1)
+    bot.press('enter',2,0.5)
     bot.sleep(3)
     bot.press('enter',58,0.05)
     bot.write(vendedor) # Vendedor
@@ -20,6 +20,7 @@ def gerarVdgr0017(vendedor):
     nomeRelatorio = 'POS ' + vendedor + '.TXT'
     bot.sleep(2)
     bot.write(nomeRelatorio)
+    print(nomeRelatorio, 'gerado!')
     bot.press('tab')
     bot.press('tab')
     bot.press('enter')
@@ -45,7 +46,7 @@ def gerarVdgr0090vend(vendedor,mes):
     bot.press('enter')
     bot.write('vdgr0090')
     bot.press('enter',2,.05)
-    bot.sleep(2)
+    bot.sleep(3)
     bot.write(mes)
     bot.press('enter',10,0.1)
     bot.write(vendedor)
@@ -70,6 +71,7 @@ def gerarVdgr0090vend(vendedor,mes):
     nomeRelatorio = 'ret ' + vendedor + '.TXT'
     bot.sleep(2)
     bot.write(nomeRelatorio)
+    print(nomeRelatorio, 'gerado!')
     bot.press('tab')
     bot.press('tab')
     bot.press('enter')
@@ -95,6 +97,7 @@ def gerarVendaIndiv(vendedor):
     bot.press('enter')
     bot.write('vdgr0091')
     bot.press('enter',2)
+    bot.sleep(3)
     bot.press('enter',12,0.05)
     bot.write(vendedor)
     bot.press('enter',7,0.05)
@@ -110,6 +113,7 @@ def gerarVendaIndiv(vendedor):
     nomeRelatorio = 'venda ' + vendedor + '.TXT'
     bot.sleep(2)
     bot.write(nomeRelatorio)
+    print(nomeRelatorio, 'gerado!')
     bot.press('tab')
     bot.press('tab')
     bot.press('enter')
@@ -135,7 +139,7 @@ def gerarFatGeral():
     bot.press('enter')
     bot.write('vdgr0090')
     bot.press('enter',2)
-    bot.sleep(2)
+    bot.sleep(3)
     bot.press('enter',9,0.1)
     bot.write('500')
     bot.press('enter',4,0.1)
@@ -150,6 +154,7 @@ def gerarFatGeral():
     bot.press('enter')
     bot.sleep(2)
     bot.write('faturamento geral.txt')
+    print('faturamento geral.txt gerado!')
     bot.press('tab')
     bot.press('tab')
     bot.press('enter')
@@ -157,8 +162,15 @@ def gerarFatGeral():
     bot.press('esc',3,0.2)
 
 def gerarRelatorios(todos=False):
-    print('10 Segundos para clicar na tela de rotinas externas!')
-    bot.sleep(10)
+    print('Desative o NUM LOCK!')
+    time.sleep(1)
+    print('Clique na janela de rotinas externas!')
+    time.sleep(1)
+    for c in range(10,0,-1):
+        print(f'{c} Segundos para iniciar!')
+        time.sleep(1)
+
+    print('Iniciando...')
     if todos:
         geraPos(todos=True)
         time.sleep(2)
@@ -168,15 +180,15 @@ def gerarRelatorios(todos=False):
         time.sleep(2)
         gerarFatGeral()
     else:
-        # geraPos()
-        # time.sleep(2)
-        # geraVenda()
-        # time.sleep(2)
-        # geraRet()
-        # time.sleep(2)
+        geraPos()
+        time.sleep(2)
+        geraVenda()
+        time.sleep(2)
+        geraRet()
+        time.sleep(2)
         gerarFatGeral()
-
-gerarRelatorios()
+    print('Finalizando...')
+# gerarRelatorios()
 # time.sleep(5)
 # gerarFatGeral()
 # geraRet(todos=True)
