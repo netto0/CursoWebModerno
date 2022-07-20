@@ -166,11 +166,18 @@ def gerarRelatorios(todos=False):
     time.sleep(1)
     print('Clique na janela de rotinas externas!')
     time.sleep(1)
+    if todos:
+        print('Gerando Relatorios de todos os vendedores')
+    else:
+        print('Gerando Relatorios apenas dos 3 vendedores')
+    time.sleep(1)    
     for c in range(10,0,-1):
         print(f'{c} Segundos para iniciar!')
         time.sleep(1)
 
     print('Iniciando...')
+    time.sleep(2)
+    
     if todos:
         geraPos(todos=True)
         time.sleep(2)
@@ -192,7 +199,3 @@ def gerarRelatorios(todos=False):
 # time.sleep(5)
 # gerarFatGeral()
 # geraRet(todos=True)
-
-
-
-
