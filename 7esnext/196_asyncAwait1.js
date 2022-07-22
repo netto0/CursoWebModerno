@@ -28,6 +28,6 @@ async function executar() {
     return valor + 3 
 }
 
-console.log(executar()) // Ao tentar acessar o return desta maneira o return será "Promise { <pending> }"
+// console.log(executar()) // Ao tentar acessar o return desta maneira o return será "Promise { <pending> }"
 
-executar().then(console.log) // Para acessá-lo for da async function podemos utilizar o .then
+// executar().then(console.log) // Para acessá-lo for da async function podemos utilizar o .then
