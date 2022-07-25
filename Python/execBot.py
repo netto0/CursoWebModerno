@@ -2,8 +2,8 @@ from geraRelatorios import *
 import time
 from datetime import date
 
-time.sleep(5)
 print('Clique na tela de rotinas externas!')
+time.sleep(5)
 
 def geraSexta():
     geraRet(502,4)
