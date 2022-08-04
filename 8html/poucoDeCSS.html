@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Um Pouco de CSS</title>
+        <link rel="stylesheet" href="poucoDeCSS.css"> <!--Desta forma que referenciamos um arquivo CSS-->
+        <!--Os códigos CSS são escritos dentro da tag style-->
+        <!--As 3 formas mais básicas de conectar o html com css são: A partir da tag, pelo id e pela classe-->
+        <style> 
+            h1 { /* Para referenciar uma tag basta escrever o nome dela*/
+                font-size: 20px; 
+            }
+                
+            .fundoVermelho { /*Para criar e referenciar uma classe CSS utilizamos ".nomeDaClasse" */
+                background-color: #C00;
+            }
+
+            #textoPrincipal { /*Para criar e referenciar um id CSS utilizamos "#nomeDoId" */
+                font-size: 40px;
+                font-weight: bold;
+                color: #fff;
+                padding: 10px;
+                background-color: #444;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>CSS</h1>
+        <span id="textoPrincipal">Texto 1</span><br><br>
+        <span class="fundoVermelho negrito">Texto 2</span><br> <!--Desta forma referenciamos mais de uma classe CSS na mesma tag-->
+        <span class="fundoVermelho">Texto 3</span>
+    </body>
+</html>
