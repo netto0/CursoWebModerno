@@ -7,7 +7,7 @@ def preencherRotinasExternas(relatorio):
     bot.write('1')
     bot.press('enter')
     keyboard.type(relatorio)
-    bot.press('enter', 2, 0.05)
+    bot.press('enter', 2, 0.1)
 
 def montarCaminho(vendedor, arquivo):
     caminho = r'f:\DOCUMENTOS\Netto\Att Planilha\Relatorios'

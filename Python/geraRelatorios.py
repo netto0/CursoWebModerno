@@ -18,7 +18,7 @@ def geraPos(vendedor):
     bot.write(vendedor) # Vendedor
     bot.write(vendedor) # Vendedor
     bot.press('enter',57,0.05)
-    bot.sleep(3)
+    bot.sleep(5)
     # Fim do Corpo
     salvar(caminhoCompleto, nomeArquivo)
 
@@ -64,7 +64,7 @@ def geraVenda(vendedor):
     nomeArquivo = montarCaminho(vendedor, arquivo)[1]
     preencherRotinasExternas('vdgr0091')
     # Corpo da função
-    bot.press('enter',12,0.05)
+    bot.press('enter',12,0.1)
     bot.write(vendedor)
     bot.press('enter',7,0.05)
     bot.write('20211',0.02)
@@ -73,7 +73,7 @@ def geraVenda(vendedor):
     apertar(Key.left)
     bot.sleep(1)
     bot.press('enter',2,0.05)
-    bot.sleep(20)
+    bot.sleep(30)
     # Fim do Corpo
     salvar(caminhoCompleto, nomeArquivo)
 
