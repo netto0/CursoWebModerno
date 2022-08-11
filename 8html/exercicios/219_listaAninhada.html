@@ -1,17 +1,18 @@
-<h1>Projeto</h1>
+<h1>Resposta Exercício</h1>
 <ul class="tree">
-    <li>Backend
+    <li>
+        <span wm-folder>Backend</span>
         <ul>
-            <li>
-                app
+            <li> 
+                <span wm-folder>App</span>
                 <ul>
                     <li>produto.js</li>
                     <li>usuario.js</li>
                     <li>venda.js</li>
                 </ul>
             </li>
-            <li>
-                config
+            <li> 
+                <span wm-folder>Config</span>
                 <ul>
                     <li>banco.js</li>
                     <li>rotas.js</li>
@@ -20,11 +21,11 @@
             </li>
         </ul>
     </li>
-    <li>
-        Frontend
+    <li> 
+        <span wm-folder>Frontend</span>
         <ul>
-            <li>
-                public
+            <li> 
+                <span wm-folder>Public</span>
                 <ul>
                     <li>app.css</li>
                     <li>app.js</li>
@@ -34,6 +35,16 @@
         </ul>
     </li>
 </ul>
+
+<script>
+    document.querySelectorAll('[wm-folder]').forEach(folder => {
+        folder.onclick = function(e) {
+            const ul = folder.nextElementSibling
+            const d = ul.style.display
+            ul.style.display = d === 'none' ? 'block' : 'none'
+        }
+    })
+</script>
 
 <link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
 
