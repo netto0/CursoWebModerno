@@ -5,7 +5,27 @@
     <meta charset="UTF-8">
     <title>Display</title>
     <style>
-        /* ... */
+        body {
+            font-size: 40px;
+            color: #fff;
+            background-color: coral;
+        }
+
+        ul {padding: 0;}
+        div {background-color: seagreen;}
+        span {background-color: dodgerblue;}
+        li {background-color: purple;}
+
+        div, span, li {
+            width: 50%;
+            width: 200px;
+            height: 80px;
+            padding-top: 30px;
+            text-align: center;
+            display: block; /*Cada elemento ocupa uma linha*/
+            display: inline; /*Os elementos dividirão uma mesma linha (altura e largura dos elementos são desconsideradas)*/
+            display: inline-block; /*Os elementos dividirão a linha respeitando os parametros de altura e largura*/
+        }
     </style>
 </head>
 
