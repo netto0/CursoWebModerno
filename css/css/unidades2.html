@@ -1,10 +1,27 @@
+
 <!DOCTYPE html>
-<html>
-<head>
+    <html>
+        <head>
     <meta charset="UTF-8">
     <title>Unidades #02</title>
     <style>
-        /* ... */
+        .fora {
+            position: relative;
+            background-color: orange;
+            height: 400px;
+            width: 400px;
+            padding: 50px;
+        }
+
+        .dentro {
+            background-color: mediumvioletred;
+            height: 100px;
+            width: 100%;
+            position: static; /*Conteúdo*/
+            position: relative; /*Conteúdo*/
+            position: absolute; /*Conteúdo + Padding*/
+            position: fixed; /*ViewPort*/
+        }
     </style>
 </head>
 <body>
@@ -13,3 +30,59 @@
     </div>
 </body>
 </html>
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Unidades #02</title>
+    <style>
+        .fora {
+            position: absolute;
+            background-color: red;
+            height: 400px;
+            width: 400px;
+            padding: 50px;
+            left: 200px;
+        }
+
+        .dentro {
+            background-color: skyblue;
+            height: 130px;
+            width: 90%;
+            position: static; /*Conteúdo*/
+            position: relative; /*Conteúdo*/
+            position: absolute; /*Conteúdo + Padding*/
+            /* position: fixed; ViewPort */
+            left: 120px;
+        }
+
+        .dentro2 {
+            background-color: white;
+            height: 80px;
+            width: 60%;
+            position: absolute;
+            top: 420px;
+            left: 100px;
+        }
+
+        .dentro3 {
+            background-color: red;
+            height: 200px;
+            width: 100px;
+            position: absolute;
+            top: 180px;
+            left: -10%;
+        }
+    </style>
+</head>
+<body>
+    <div class="fora">
+        <div class="dentro"></div>
+        <div class="dentro2"></div>
+        <div class="dentro3"></div>
+    </div>
+</body>
+</html> -->
