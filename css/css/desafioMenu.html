@@ -104,16 +104,16 @@
         <nav class="menu">
             <ul>
                 <li>
-                    <a href="#inicio" id="inicio" class="teste">Início</a>
+                    <a href="#inicio" id="inicio" class="teste1">Início</a>
                 </li>
                 <li >
-                    <a href="#cursos" id= "cursos" class="teste">Cursos</a>
+                    <a href="#cursos" id= "cursos" class="teste2">Cursos</a>
                 </li>
                 <li >
-                    <a href="#sobre" id="sobre" class="teste">Sobre</a>
+                    <a href="#sobre" id="sobre" class="teste3">Sobre</a>
                 </li>
                 <li >
-                    <a href="#contato" id="contato" class="teste">Contato</a>
+                    <a href="#contato" id="contato" class="teste4">Contato</a>
                 </li>
             </ul>
         </nav>
@@ -126,12 +126,14 @@
     <script>
         function debug(e) {
             const hashAtual = window.location.hash
+            document.querySelector('.teste1').style.backgroundColor = 'transparent'
+            document.querySelector('.teste2').style.backgroundColor = 'transparent'
+            document.querySelector('.teste3').style.backgroundColor = 'transparent'
+            document.querySelector('.teste4').style.backgroundColor = 'transparent'
             const elemento = document.querySelector(`.menu ${hashAtual}`)
-            const menu = document.querySelectorAll('.teste')
-            menu.style.backgroundColor = 'red'
             menu.style.color = 'white'
-            // elemento.style.backgroundColor = 'steelblue'
-            // elemento.style.color = 'black'
+            elemento.style.backgroundColor = 'steelblue'
+            elemento.style.color = 'black'
         }
     </script>
 </body>
