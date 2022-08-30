@@ -12,7 +12,21 @@
             border: solid 5px;
             display: none;
         }
-    </style>
+
+        @media (max-width: 600px) { /*Só vai ser aplicado enquanto a largura for no máximo 600px*/
+            .muito-pequeno {display: block}
+        }
+        
+        /*A "," serve como operador "ou"*/
+
+        @media (max-width: 1000px), (orientation: portrait) { /*Ou a largura até 1000px ou estiver em modo retrato*/
+            .pequeno-retrato {display: block}
+        }
+        
+        @media (min-width: 500px) and (max-width: 1000px) { /*A largura tem que estar entre 500 e 1000px (operador and)*/
+            .intervalo {display: block}
+        }        
+        </style>
 </head>
 <body>
     <div class="muito-pequeno">Muito Pequeno</div>
