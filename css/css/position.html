@@ -5,7 +5,62 @@
     <meta charset="UTF-8">
     <title>Position</title>
     <style>
-        /* ... */
+        div {
+            font-size: 60px;
+            padding: 30px;
+            border: solid 5px #222;
+        }
+
+        .static { /*Comportamento Padrão*/
+            top: 100px;
+            left: 100px;
+            background-color: steelblue;    
+        }
+
+        .fixed { /*Fica "flutuando" no local escolhido*/
+            position: fixed;
+            bottom: 30px;
+            right: 0px;
+            background-color: tomato;
+        }
+
+        .relative1 { /*Ele é relativo ao elemento anterior, respeitando o seu espaço*/
+            position: relative;
+            left: 50px;
+            top: 5px;
+            background-color: seagreen;
+        }
+
+        .absolute1 { /*Fica na posição escolhida independente de haver ou não outro elemento no local*/
+            position: absolute;
+            left: 350px;
+            top: 120px;
+            background-color: violet;
+        }
+
+        .relative2 {
+            position: relative;
+            left: 250px;
+            top: 2000px;
+            width: 200px;
+            height: 200px;
+            background-color: slategray;
+        }
+
+        .absolute2 { /*Quando está dentro de um elemento relativo, o absolute se posiciona com relação ao seu pai*/
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: orange;
+        }
+
+        .sticky { /*Age como o static, porém ao descer o scroll da tela ele fica flutante na posição determinada no top*/
+            position: sticky;
+            background-color: #777;
+            top: 0px;
+        }
     </style>
 </head>
 

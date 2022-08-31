@@ -11,10 +11,71 @@
             margin: 0;
         }
 
+        html { 
+            font-size: 28px;
+        }
+
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        div {
+            font-size: 50px;
+        }
+
+        p {
+            /*Valores Padrões*/
+            font-size: 1em;
+            font-size: 100%;
+            font-size: 16px;
+            font-size: 12pt;
+
+            /*Unidades Absolutas*/
+            font-size: 100px; /*Tamanho do pixel é relativo*/
+            font-size: 72pt; /*Pontos*/
+            font-size: 1in; /*Polegada*/
+
+            /*Unidades Relativas*/
+            font-size: 2.2em;
+            font-size: 2.2rem;
+            font-size: 50vh;
+            font-size: 10vw;
+
+            /*Famílias de Fontes*/
+            font-family: monospace; /*Todos os caracteres ocupam o mesmo espaço*/
+            font-family: Georgia, serif; /*Fontes serifadas possuem "pontinhas" nas letras*/
+            font-family: Verdana, sans-serif; /*Fontes não serifadas*/
+            font-family: 'Indie Flower', cursive; /*Fontes de letra cursiva*/
+            
+            font-weight: 100; /*O "peso" da fonte, podem ser usados valores pré-definidos como "bold"*/
+            font-style: italic;
+            text-transform: uppercase;
+            text-decoration: overline underline line-through; /*Linha abaixo, acima e cortando o texto*/
+            word-spacing: 10px; /*Espaçamento entre as palavras*/
+            letter-spacing: 20px; /*Espaçamento entre as letras*/
+            line-height: 2.5em;
+            text-align: center;
+        }
+
+        .botao {
+            font-size: 28px;
+            text-decoration: none;
+            padding: 10px 30px;
+            border-radius: 25px;
+        }
+
+        .destaque {
+            color: #fff;
+            background: tomato;
+            box-shadow: 2px 2px 1px 1px #000;
+        }
+
+        .destaque:active {
+            color: rgb(4, 238, 255);
+            background: rgb(255, 165, 149);
+            box-shadow: none;
         }
     </style>
 </head>
