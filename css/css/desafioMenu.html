@@ -25,6 +25,10 @@
             right: 10px;
             width: 40px;
             height: 30px;
+            background-color: rgb(88, 86, 86);
+            color: gainsboro;
+            border: 0;
+            border-radius: 5px;
         }
 
         
@@ -75,8 +79,16 @@
             border-radius: 25px;
         }
         
+        .botao#login:active {
+            color: rgb(255, 64, 64);
+        }
+
         .destaque {
             background-color: rgb(255, 64, 64);
+        }
+
+        .destaque:active {
+            background-color: rgb(255, 101, 101);
         }
         
         @media (max-width: 485px) {
@@ -118,7 +130,7 @@
             </ul>
         </nav>
         <aside class="autenticacao">
-            <a href="#login">Login</a>
+            <a href="#login" class="botao" id="login">Login</a>
             <a href="#registar" class="botao destaque">Registrar</a>
         </aside>
     </header>
@@ -130,8 +142,14 @@
             document.querySelector('.teste2').style.backgroundColor = 'transparent'
             document.querySelector('.teste3').style.backgroundColor = 'transparent'
             document.querySelector('.teste4').style.backgroundColor = 'transparent'
+            
+            document.querySelector('.teste1').style.color = 'white'
+            document.querySelector('.teste2').style.color = 'white'
+            document.querySelector('.teste3').style.color = 'white'
+            document.querySelector('.teste4').style.color = 'white'
+
             const elemento = document.querySelector(`.menu ${hashAtual}`)
-            menu.style.color = 'white'
+            
             elemento.style.backgroundColor = 'steelblue'
             elemento.style.color = 'black'
         }
