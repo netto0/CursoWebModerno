@@ -6,7 +6,48 @@
     <title>Flexbox #01</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        .big {
+            font-size: 1.5em;
+        }
+
+        .flex-container {
+            display: flex; /*Indica que trabalharemos com flexbox*/
+            flex-direction: column; /*O main-axis se torna a coluna*/
+            flex-direction: column-reverse; /*Coluna invertida*/
+            flex-direction: row-reverse; /*Linha invertida com alinhamento a direita*/
+            flex-direction: row; /*É o padrão aplicado quando nada é passado*/
+            width: 50%;
+            height: 200px;
+            flex-wrap: wrap; /*Irá quebrar a linha ou coluna quando o espaço for insuficiente*/
+            flex-wrap: wrap-reverse; /*Quebra a linha invertendo-as */
+            flex-flow: row wrap; /*Junta o flex-wrap com o flex-direction*/
+            flex-flow: column-reverse wrap; /*Se torna coluna reversa e irá quebrar em outras colunas por não ter espaço*/
+            /*Se o espaço não for suficiente e não tiver o parametro wrap, o comportamento padrão é o overflow*/
+            flex-flow: row wrap;
+
+            /*"justify-content" Define a justificação com base no Main Axis*/
+
+            justify-content: flex-start; /*Justifica os elementos a partir do flex-start (ponto inicial do container)*/
+            justify-content: flex-end; /*Justifica a partir do final*/
+            justify-content: center;
+            justify-content: space-around; /*Irá colocar espaços ao redor dos elementos para que sejam distribuidos uniforme*/
+            justify-content: space-between; /*Irá colocar espaço somente entre os elementos*/
+
+            /* Cross Axis (Alinhamento com base nos itens)*/
+            height: 400px;
+            align-items: stretch; /*Alinhamento Padrão*/
+            align-items: baseline; /*Irá alinhar pela base das fontes*/
+            align-items: flex-start; /*Irá alinhar pelo início do flex item*/
+            align-items: flex-end; /*Alinhará pelo final do flex item*/
+            align-items: center; /*Alinha pelo centro*/
+
+            /*Mais de uma linha (O alinhamento se dará com base nas linhas)*/ 
+            align-content: flex-start; /*Todas as linhas vão para o início do container*/
+            align-content: flex-end;
+            align-content: center;
+            align-content: space-around;
+            align-content: space-between;
+        }
     </style>
 </head>
 
