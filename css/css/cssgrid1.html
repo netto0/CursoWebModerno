@@ -22,6 +22,41 @@
             border: solid 5px dodgerblue;
             background: #fff;
         }
+
+        body {
+            display: grid; /*Determina que trabalharemos com css grid*/
+            grid-template-columns: 50% 50%; /*2 colunas que ocupam 50% do display cada*/
+            grid-template-columns: repeat(4, 8.33% 8.33% 8.33%); /*repete (nº de vezes, parâmetros)*/
+            grid-template-columns: repeat(12, 8.33%);
+            grid-template-columns: repeat(11, 100px) 200px;
+            grid-template-columns: 200px 20% 1fr; /*1ª: Terá 200px fixos / 2ª: Terá 20% do display / 3ª: Terá 1 fragmento do que restar, ou seja, todo o restante*/
+            grid-template-columns: 1fr 2fr 1fr; /*Segue a mesma lógica do flex-grow*/
+            grid-template-rows: 50% 25% 12.5% 12.5%; /*Mesma lógica das colunas para linhas*/
+            grid-template-rows: 100px 1fr;
+            grid-template-rows: 100px auto auto auto;
+        }
+
+        .d8 {
+            grid-column-start: 2; /*O elemento em questão iniciará na coluna 2*/
+            grid-column-end: 4; /*O elemento em questão terminará na coluna 4*/
+            grid-column-end: span 2; /*Terminará na coluna 2 mas tendo iniciado 2 colunas atrás, ou seja, coluna 4*/
+            grid-row-start: 3; /*Mesmo funcionamento para linhas*/
+            grid-row-end: 5;
+            grid-row-end: span 2;
+        }
+
+        .d10,
+        .d11 {
+            /*Podem se sobrepor*/
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 5;
+            grid-row-end: span 1;
+        }
+
+        .d10 {
+            z-index: 10; /*Padrão é 0, quando o z-index é maior o elemento vem pra frente dos demais sobrepostos */
+        }
     </style>
 </head>
 
