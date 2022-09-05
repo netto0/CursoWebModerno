@@ -1,3 +1,4 @@
+from email.charset import QP
 import pyautogui as bot
 import time
 from pynput.keyboard import Controller, Key
@@ -13,12 +14,12 @@ def geraPos(vendedor):
     nomeArquivo = montarCaminho(vendedor, arquivo)[1]
     preencherRotinasExternas('vdgr0017')
     # Corpo da função
-    bot.sleep(1.5)
-    bot.press('enter',58,0.05)
-    bot.write(vendedor) # Vendedor
-    bot.write(vendedor) # Vendedor
-    bot.press('enter',57,0.05)
-    bot.sleep(5)
+    time.sleep(1.5)
+    apertar(Key.enter,58,0.05)
+    keyboard.type(vendedor)
+    keyboard.type(vendedor)
+    apertar(Key.enter,57,0.05)
+    time.sleep(5)
     # Fim do Corpo
     salvar(caminhoCompleto, nomeArquivo)
 
@@ -32,26 +33,26 @@ def geraRet(vendedor, mes):
     nomeArquivo = montarCaminho(vendedor, arquivo)[1]
     preencherRotinasExternas('vdgr0090')
     # Corpo da função
-    bot.sleep(3)
+    bot.sleep(1.5)
     bot.write(mes)
-    bot.press('enter',10,0.1)
-    bot.write(vendedor)
-    bot.press('enter',3,0.1)
+    apertar(Key.enter,10,0.1)
+    keyboard.type(vendedor)
+    apertar(Key.enter,3,0.1)
     apertar(Key.right,4)
-    bot.press('enter',7,0.1)
+    apertar(Key.enter,7,0.1)
     bot.press('space')
-    bot.press('enter')
-    bot.write('1')
-    bot.press('enter')
-    bot.write('25')
-    bot.press('enter')
-    bot.write('61')
-    bot.press('enter',16,0.2)
+    apertar(Key.enter)
+    keyboard.type('1')
+    apertar(Key.enter)
+    keyboard.type('25')
+    apertar(Key.enter)
+    keyboard.type('61')
+    apertar(Key.enter,16,0.2)
     bot.press('space')
-    bot.press('enter',3,0.1)
+    apertar(Key.enter,3,0.1)
     bot.press('space')
-    bot.press('enter',3,0.1)
-    bot.sleep(6)
+    apertar(Key.enter,3,0.1)
+    time.sleep(6)
     # Fim do Corpo
     salvar(caminhoCompleto, nomeArquivo)
 
@@ -64,16 +65,17 @@ def geraVenda(vendedor):
     nomeArquivo = montarCaminho(vendedor, arquivo)[1]
     preencherRotinasExternas('vdgr0091')
     # Corpo da função
-    bot.press('enter',12,0.1)
-    bot.write(vendedor)
-    bot.press('enter',7,0.05)
-    bot.write('20211',0.02)
-    bot.press('enter',49,0.15)
-    bot.sleep(1)
+    time.sleep(2)
+    apertar(Key.enter,12,0.2)
+    keyboard.type(vendedor)
+    apertar(Key.enter,7,0.05)
+    bot.write('20211',0.03)
+    apertar(Key.enter,49,0.15)
+    time.sleep(1)
     apertar(Key.left)
-    bot.sleep(1)
-    bot.press('enter',2,0.05)
-    bot.sleep(30)
+    time.sleep(1)
+    apertar(Key.enter,2,0.05)
+    time.sleep(30)
     # Fim do Corpo
     salvar(caminhoCompleto, nomeArquivo)
 
@@ -86,19 +88,19 @@ def geraFatGeral():
     nomeArquivo = montarCaminho(vendedor, arquivo)[1]
     preencherRotinasExternas('vdgr0090')
     # Corpo da função
-    bot.sleep(3)
-    bot.press('enter',9,0.1)
-    bot.write('500')
-    bot.press('enter',4,0.1)
+    time.sleep(3)
+    apertar(Key.enter,9,0.1)
+    keyboard.type('500')
+    apertar(Key.enter,4,0.1)
     apertar(Key.right,3)
-    bot.press('enter',26,0.1)
+    apertar(Key.enter,26,0.1)
     bot.press('space')
-    bot.press('enter',3)
+    apertar(Key.enter,3)
     bot.press('space')
-    bot.press('enter',3)
-    bot.sleep(2)
-    bot.press('tab')
-    bot.press('enter')
-    bot.sleep(2)
+    apertar(Key.enter,3)
+    time.sleep(2)
+    apertar(Key.tab)
+    apertar(Key.enter)
+    time.sleep(2)
     # Fim do Corpo
     salvar(caminhoCompleto, nomeArquivo)

@@ -1,7 +1,7 @@
 from geraRelatorios import *
 import time
 from datetime import date
-
+from funcoesComuns import goToExcel
 print('Clique na tela de rotinas externas!')
 for c in range(5,0,-1):
     print(f'Iniciando em {c}')
@@ -25,7 +25,7 @@ def geraSexta():
     geraVenda(509)
     geraFatGeral()
 
-def geraSemana():
+def geraSemana():      
     geraRet(503,5)
     geraRet(504,5)
     geraRet(507,5)
@@ -36,6 +36,7 @@ def geraSemana():
     geraVenda(504)
     geraVenda(507)
     geraFatGeral()
+    goToExcel()
 
 DIAS = [
     'Segunda-feira',
