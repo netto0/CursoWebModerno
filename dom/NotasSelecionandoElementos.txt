@@ -1,0 +1,37 @@
+
+DOCUMENT GET ELEMENT
+
+* document.getElementById('id') -> Busca o elemento pelo ID sem a necessidade de utilizar "#"
+* document.getElementsByTagName('div') -> Busca por tipo de tag, porém retorna um HTML Collection que precisa ser tratado
+    Uma das formas de tratar esse formato é transformando em um array utilizando o array.from()
+    Outra forma de tratar é utilizando o operador spread (...), que também resultará num array
+* document.getElementsByClassName('nome') -> Irá obter todos os elementos com esse nome de classe (também retorna um HTML Collection)
+
+DOCUMENT QUERY SELECTOR
+
+* document.querySelector('#id') -> Irá retornar apenas o 1º objeto, mas nesse caso é necessário informar o seletor ('#' no caso)
+* document.querySelectorAll('#id') -> Irá retornar todos os elementos que atenderem ao requisito
+* document.querySelector('div ul') -> Seleciona os 'ul' dentro de uma 'div'
+* document.querySelector('div ul').childNodes -> Irá listar os filhos do elemento, porém irá listar os textos entre eles.
+* document.querySelector('div ul').firstChild -> Primeiro filho (inclui textos)
+* document.querySelector('div ul').firstChild.nextSibling -> O elemento após o 1º filho
+* document.querySelector('div ul').firstChild.previousSibling -> O elemento anterior o 1º filho
+* document.querySelector('div ul').children -> Lista os elementos sem incluir os textos
+* document.querySelector('div ul').firstElementChild -> 1º elemento sem contar texto
+* document.querySelector('div ul').lastElementChild -> Último elemento sem contar texto
+* document.querySelector('div ul').parentNode.previousElementSibling -> Irá retornar o elemento anterior ao pai do elemento atual
+* document.querySelector('div ul').parentNode.nextElementSibling -> Irá retornar o elemento seguinte ao pai do elemento atual
+
+PSEUDO-CLASSES
+
+* :not(#id) -> Irá selecionar o(s) elemento que não tiver o parâmetro indicado. 
+* :nth-child(1) -> Seleciona o 1º "filho" do elemento atual
+* div:nth-of-type(1) -> Seleciona o 1º elemento do tipo div  
+
+DOCUMENT 
+
+* document.forms -> Irá retornar um HTML Collection com os form
+* HTML Collection é iterável
+* document.nomeDoFormulario -> acessa diretamente o form com esse name
+* document.nomeDoFormulario.q -> Irá imprimir o elemento 'q' no formulário indicado
+* document.nomeDoFormulario.q.value -> Podemos acessar e alterar o valor do campo selecionado

@@ -22,7 +22,34 @@
         <p>Fim</p>
     </div>
     <script>
-        // ...
+        function log() {
+            console.log(this)
+        }
+
+        HTMLCollection.prototype.log = log
+        HTMLElement.prototype.log = log
+        NodeList.prototype.log = log
+        Node.prototype.log = log
+        // Apenas adicionando a função log nesses elementos para simplificar o console.log
+
+        const lista = document.querySelector('div ul') // Irá selecionar os 'ul' dentro de uma 'div'
+        lista.parentNode.log()
+        lista.childNodes.log() // Irá Listar todos os filhos do elemento, porém irá listar texto também
+
+        const primeiro = lista.firstChild // Também conta o texto
+        primeiro.log()
+        primeiro.nextSibling.log() // Pega o elemento após o indicado
+
+        const ultimo = lista.lastChild
+        ultimo.log()
+        ultimo.previousSibling.log() // Pega o elemento anterior ao indicado
+
+        lista.children.log() // Não lista os textos, apenas os elementos em si (retorna um HTML Collection)
+        lista.firstElementChild.log() // Irá retornar o primeiro elemento definido, não o texto
+        lista.lastElementChild.log() // Mesma coisa para o último elemento
+        lista.parentNode.previousElementSibling.log() // Irá retornar o elemento anterior ao pai do elemento atual
+        lista.parentNode.nextElementSibling.log() // Mesma coisa para o elemento seguinte
+
     </script>
 </body>
 
