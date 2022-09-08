@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 
 <head>
@@ -17,7 +17,17 @@
         </ul>
     </div>
     <script>
-        // ...
+        const lista = document.querySelector('div ul[destino="escritório"]')
+        console.log('Elemento "ul".............')
+        console.log('childNodes:', lista.childNodes)
+        console.log('destino:', lista.destino) // Não é possível acessar um atributo personalizado com a notação '.'
+        console.log('getAttribute:', lista.getAttribute('destino')) // Para acessá-lo usamos getAttribute
+        console.log('hasAttribute:', lista.hasAttribute('destino')) // Verifica se o elemento tem determinado atributo
+        lista.setAttribute('destino', 'empresa') // Altera/cria o valor do atributo escolhido (de escritório p/ empresa no caso)
+        lista.removeAttribute('destino') // Remove o atributo selecionado
+        console.log(lista.dataset.urgencia) // Acessando um elemento no dataset
+        lista.dataset.urgencia = 4 // Alterando elemento no dataset
+        // Quando um atributo tem o prefixo "data-" ele é incluso no "dataset" podendo acessá-lo usando ".dataset.atributo(sem o pref.)"
     </script>
 </body>
 
