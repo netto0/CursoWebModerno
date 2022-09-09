@@ -9,7 +9,31 @@
 
 <body class='conteudo exercicio'>
     <script>
-        // ...
+        const body = document.querySelector('body') // Armazenamos o elemento body numa constante
+
+        const div1 = document.createElement('div') // Criando um elemento (no caso uma div)
+        div1.classList.add('destaque') // Adicionando a classe destaque à div
+        div1.innerHTML = 'Primeiro' // Inserindo o texto no html do elemento
+
+        const div2 = document.createElement('div')
+        div2.setAttribute('wm-atributo', 'valor')  // Adicionando o atributo: 'wm-atributo'='valor'
+        div2.innerHTML = 'Segundo'
+
+        const p = document.createElement('p')
+        p.innerHTML = 'Terceiro'
+        const div3 = document.createElement('div')
+        div3.appendChild(p)
+
+        body.appendChild(div1) // AppendChild adiciona um elemento dentro de outro
+        body.appendChild(div2) // No caso estamos adicionando as div ao body
+        body.appendChild(div3) // O appendChild adiciona por último o elemento
+
+        const texto = document.createTextNode('Antes...') // Outra maneira de criar textos html
+        div3.insertBefore(texto, div3.childNodes[0]) // .insertBefore adiciona o elemento do 1 param antes do elemento ref no 2 param.
+
+        const div4 = div3.cloneNode(true) // Clonando a div3 para uma nova div, o parametro true é para deep clone, ou seja, clonar os filhos inclusive
+        body.appendChild(div4)
+        body.removeChild(div3) // Removendo um filho
     </script>
 </body>
 
