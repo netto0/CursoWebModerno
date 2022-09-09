@@ -12,7 +12,23 @@
         Classes
     </div>
     <script>
-        // ...
+        const div = document.querySelector('div')
+        const classes = div.classList
+        classes.add('destaque')
+        classes.remove('destaque')
+        classes.toggle('destaque') // Alterna entre add e remove
+        console.log(classes.contains('destaque')) // Verifica se contém
+        console.log(classes.length)
+        classes.toggle('destaque')
+        console.log(classes.length)
+
+        classes.add('detaque1')
+        classes.add('detaque2')
+        console.log(classes.length)
+
+        for(let c of classes) { // Possui iterador
+            console.log(c)
+        }
     </script>
 </body>
 
