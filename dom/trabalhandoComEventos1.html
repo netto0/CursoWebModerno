@@ -9,9 +9,24 @@
 
 <body class="conteudo exercicio">
     <div>
-        <a href="https://google.com.br">Google</a>
+        <!--onclick="naveharEm5s(event)"--> <!--1 Maneira de executar (mais explícita)-->
+        <a espera-um-pouco href="https://google.com.br">Google</a>
     </div>
     <script>
-        // ...
+        function navegarEm5s(e) { // "e" é o evento
+            e.preventDefault() // "previne" o comportamento padrão do evento
+            console.log('Saindo em 5s...')
+            setTimeout(() => {
+                const link = e.target // é o "alvo" do evento
+                window.location.href = link.href // irá substituir a url atual pelo link
+            }, 5000) // em 5 segundos
+        }
+
+        // const a = document.querySelector('a') <!--2 Maneira de executar (mais discreta)-->
+        // a.onclick = navegarEm5s
+
+        const a = document.querySelector('[espera-um-pouco]') //3 Maneira de executar (meio a meio)
+        a.onclick = navegarEm5s
+        
     </script>
 </body>
