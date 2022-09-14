@@ -1,0 +1,30 @@
+Trabalhando com Eventos
+
+Algumas das maneiras de interceptar um evento:
+
+1- "onclick='navegarEm5s(event)'" => Passando a função responsável por "capturar" o evento diretamente
+    dentro do elemento (dentro de uma div por exemplo). É a mais visível mas pode não ser o ideal em 
+    alguns casos por ficar muito "hard coded".
+
+2- "const a = document.querySelector('a') 
+    a.onclick = navegarEm5s" => Atribuindo uma variável/constante ao elemento html e executando a função
+    por meio dessa variável. É bem mais discreta que a 1ª mas pode se tornar ilegível para outras pessoas
+    por ficar muito "escondido" no código.
+
+3- "const a = document.querySelector('[espera-um-pouco]') 
+    a.onclick = navegarEm5s" => Não tem a desvantagem de ficar muito aparente o código como na 1ª, e 
+    também não fica tao escondido como na 2ª, já que é utilizado um atributo personalizado com um nome
+    que pode tornar tudo mais legível e de fácil entendimento.
+
+*   Quando interceptamos um evento com o "onclick" por exemplo, é passado para ele uma função, de preferência 
+    com o evento como parâmetro, é interessante passar o evento como parâmetro para que possamos interagir com
+    ele posteriormente. (ex: onclick='funcao(evento)'). 
+    
+    Possibilidades para trabalhar com o evento:
+    evento.target => Aponta para o objeto que enviou o evento (o botão no exemplo de um onclick)
+
+    Outra função que serve para interceptar um evento é a "onmousemove", que como nome diz é acionada com o 
+    movimento do mouse
+
+    "evento.buttons" é acionado quando um dos botões do mouse é pressionado.
+    

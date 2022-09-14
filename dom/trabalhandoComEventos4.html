@@ -31,6 +31,34 @@
         <button wm-submit>Pesquisar</button>
     </form>
     <script>
-        // ...
+        const submit = document.querySelector('[wm-submit]') // wm-submit é um atributo do botão
+        submit.onclick = function(e) { // um botão possui a função 'onclick' que intercepta o clique do mouse e excecuta uma função com o evento sendo passado de parâmetro
+            e.preventDefault() // "preventDefault" previne o comportamento padrão (que no caso seria navegar até o link)
+
+            const form = e.target.parentNode // "e.target" apontaria para o botão, ao utilizar o ".parentNode" apontamos para o formulário 
+            const formData = new FormData(form) // o "formData" serve para extrair os dados de um formulário passado como parâmetro
+            formData.append('ajax',true) // utilizamos .append para adicionar algo ao formData
+            console.log('q: ' + formData.get('q')) // Obtermos o valor de 'q' do formData
+            console.log('hl: ' + formData.has('hl')) // Verifica se ele tem o atributo e retorna True ou False
+
+            for (let dado of formData) { // É possível iterar sobre o formData também
+                console.log(dado)
+            }
+        }
+
+        // const form = document.forms[0]
+        // form.onsubmit = function(e) {
+        //     e.preventDefault()
+
+        //     const form = e.target
+        //     const formData = new FormData(form)
+        //     formData.append('ajax',true)
+        //     console.log(formData.get('q'))
+        //     console.log(formData.has('hl'))
+
+        //     for (let dado of formData) {
+        //         console.log(dado)
+        //     }
+        // }
     </script>
 </body>
