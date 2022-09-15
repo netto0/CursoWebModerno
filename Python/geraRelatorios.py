@@ -3,6 +3,7 @@ import pyautogui as bot
 import time
 from pynput.keyboard import Controller, Key
 from funcoesComuns import *
+from datetime import date
 keyboard = Controller()
 
 
@@ -24,9 +25,12 @@ def geraPos(vendedor):
     salvar(caminhoCompleto, nomeArquivo)
 
 
-def geraRet(vendedor, mes):
+def geraRet(vendedor):
+    hoje = date.today()
+    mesAtual = hoje.month
+    tresMesesAtras = mesAtual-3
     vendedor = str(vendedor)
-    mes = str(mes)
+    mes = str(tresMesesAtras)
     arquivo = 'RET'
     bot.PAUSE = 1
     caminhoCompleto = montarCaminho(vendedor, arquivo)[0]
