@@ -10,6 +10,15 @@
 <body class="conteudo exercicio">
     <div>Elemento</div>
     <script>
-        // ...
+        const item = document.querySelector('div') // Atribuimos a div para uma constante
+        item.style.position = 'absolute' // Tornamos a posição do item absoluta para que não haja interferência de outros items
+    item.onmousemove = e => { // "onmousemove" como o nome diz, detecta o movimento do mouse
+        const item = e.target // o "alvo" do evento no caso é a div
+        item.style.cursor = 'move' // altera o cursor do mouse para o ícone de mover
+        if (e.buttons) { // "e.buttons" é um evento reconhecido apenas quando um botão do mouse é pressionado e segurado
+            item.style.top = `${e.clientY - (item.clientHeight/2)}px`
+            item.style.left = `${e.clientX - (item.clientWidth/2)}px`
+        }
+    }
     </script>
 </body>
