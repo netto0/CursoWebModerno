@@ -11,108 +11,10 @@
 <body class="conteudo">
     <h1 class="titulo" id="areaDoTitulo">Flappy Bird</h1>
 
-    <div id="areaDoJogo">
-        <div wm-flappy class="telaDoJogo">
-            <div class="coluna">
-                <div class="pilar pilar1"></div>
-                <div class="pilar pilar2"></div>
-            </div>
-            <div class="coluna">
-                <div class="pilar pilar3"></div>
-                <div class="pilar pilar4"></div>
-            </div>
-            <div class="coluna">
-                <div class="pilar pilar5"></div>
-                <div class="pilar pilar6"></div>
-            </div>
-        </div>
-    </div>
-
-    <div id="resto"></div>
+    <div wm-flappy ></div>
     
     <script src="js/flappy.js"></script>
 </body>
 
-<style>
-    body {
-        width: 100%;
-        height: 100%;
-        display: grid;
-        grid-template-rows: 47px 100px 1fr;
-    }
-
-    #areaDoJogo {
-        display: flex;
-        height: 450px;
-        justify-content: space-around;
-        width: 100%;
-    }
-
-    #resto {
-        width: 100%;
-        height: 260px;
-    }
-
-    #areaDoTitulo {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-    }
-
-    .titulo {
-        width: 100%;
-        height: 47px;
-    }
-
-    .telaDoJogo {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        background-color: rgb(0, 174, 255);
-        width: 800px;
-        height: 450px;
-        border-right: 10px;
-    }
-
-    .pilar {
-        background-color: greenyellow;
-        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(36,121,9,1) 35%, rgba(108,255,0,0.7931547619047619) 100%);
-        width: 100%;
-        right: 87.5%; /*Margem máxima para encostar a direita = 87.5*/   
-    }
-
-    .coluna {
-        display: flex;
-        width: 12.5%;
-        height: 100%;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .pilar1 {
-        height: 30%;
-    }
-
-    .pilar2 {
-        height: 35%;
-    }
-
-    .pilar3 {
-        height: 5%;
-    }
-
-    .pilar4 {
-        height: 60%;
-    }
-    .pilar5 {
-        height: 15%;
-    }
-
-    .pilar6 {
-        height: 50%;
-    }
-
-    
-</style>
 
 </html>
