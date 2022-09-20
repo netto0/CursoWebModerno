@@ -16,13 +16,14 @@
     overflow: hidden;
 }
 
-.pontuacao {
+.progresso {
     position: absolute;
     right: 10px;
     top: 10px;
     margin: 0;
     font-family: Pixel;
     font-size: 40px;
+    z-index: 1;
 }
 
 .passaro {
