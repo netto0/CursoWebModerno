@@ -19,7 +19,7 @@ function Barreira(invertida=false) {
     }
 }
 
-function parDeBarreiras(alturaDoJogo, gapBarreiras, xAtual) {
+function ParDeBarreiras(alturaDoJogo, gapBarreiras, xAtual) {
     this.elemento = criarElemento('div','parDeBarreiras')
     this.barreiraSuperior = new Barreira(true)
     this.barreiraInferior = new Barreira(false)
@@ -38,9 +38,28 @@ function parDeBarreiras(alturaDoJogo, gapBarreiras, xAtual) {
     this.elemento.appendChild(this.barreiraInferior.elemento)
     // console.log(this.getX())
 }
+
+function ConjuntoBarreiras(altura, largura, gapBarreiras, xInicial, notificarPonto) {
+    this.pares = [
+        new ParDeBarreiras(altura, gapBarreiras, largura + xInicial),
+        new ParDeBarreiras(altura, gapBarreiras, largura + xInicial * 2),
+        new ParDeBarreiras(altura, gapBarreiras, largura + xInicial * 3),
+        new ParDeBarreiras(altura, gapBarreiras, largura + xInicial * 4),
+    ]
+
+    let passo = 3
+
+    this.animar = () => {
+        this.pares.forEach(par => par.setX(par.getX()-passo))
+    }
+}
+
 // Área de Teste
 
-const elemento1 = new parDeBarreiras(700,300,100)
-console.log(elemento1.getX())
+const elemento1 = new ConjuntoBarreiras(700,1000,300,400,'funcao')
 const telaDoJogo = document.querySelector('[wm-flappy]')
-telaDoJogo.appendChild(elemento1.elemento)
+
+function animar() {
+    elemento1.animar()
+}
+elemento1.pares.forEach(par => telaDoJogo.appendChild(par.elemento))
