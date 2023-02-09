@@ -1,0 +1,271 @@
+Anotações da Aula
+
+Aula 342 (Carregando SCSS):
+
+    dependencias:
+        sass-loader = será o loader utilizado dentro do arquivo webpack
+        node-sass = o sass-loader precisa do node-sass para funcionar
+
+    alterar regex:
+        para que a expressão regular responsável por "filtrar" o tipo de arquivo comece a aceitar também arquivos .sass/scss é preciso fazer uma atualização dela, para isso ela ficará assim: "/\.s?[ac]ss$/".
+
+    adicionar o sass-loader:
+        dentro o array "use" iremos colocar o "sass-loader" para fazer a leitura desse tipo de arquivo, ficando assim os loaders de css e sass agora.
+
+    tendo feito essas alterações já é possível ler os arquivos sass seguindo o mesmo procedimento de arquivos css.
+
+Aula 343 (Desenvolvimento & Produção):
+
+    dependencias:
+        cross-env = permite setar a variável de ambiente de forma a ser suportada nos 3 SOs(win, linux, MacOs)
+        optimize-css-assets-webpack-plugin = serve para minificar arquivos css
+
+    comando build:
+        criamos um novo comando no package.json, o "build", ele serve para iniciarmos o webpack no modo de produção. Utilizando o plugin "cross-env" ele ira setar a variável "NODE_ENV" como "production", e isso será verificado dentro do arquivo de configuração do webpack através de uma constante com uma verificação. **Para executar o comando build é preciso utilizar o "run" antes, ficando "npm run build"**
+
+    sessão otimização webpack:
+        para usar os plugins de minificação criamos uma nova seção no arquivo do webpack chamada "optimization". Dentro dela criamos um array com os minificadores que no caso só incluí o "optimizeCSS"
+
+Aula 345 (Carregando Arquivos de imagens):
+
+    Para carregar uma imagem com o webpack na aula o arquivo da imagem foi referenciado a partir do arquivo CSS, porém de qualquer forma o que vai fazer a diferença para essa imagem ser lida é o plugin **file-loader**.
+    Tendo o file-loader instalado basta criar uma nova regra no arquivo webpack, assim como estão configurados os plugins para ler arquivos css/scss.
+    Basta criar um novo objeto dentro da sessão "module", no primeiro parâmetro "test" colocamos a regex para filtrar arquivos de imagem e no segundo parâmetro "use" determinamos quais/qual plugin será usado para interpretar esse tipo de arquivo.
+
+Aula 346 (Adicionando WebServer):
+
+    Para adicionar o webServer criamos um objeto "devServer" no arquivo webpack, nesse objeto temos 2 parâmetros: contentBase (que é a pasta a ser servida pelo servidor) e a porta.
+    Após isso alteramos o script de start para que ele execute agora o plugin "webpack-dev-server".
+    Desta forma, basta executar o npm start para ter um servidor atualizando em tempo real com cada alteração no código.
+
+Aula 349 (Entendendo jQuery):
+
+    É uma biblioteca JavaScript que tem como foco facilitar a manipulação da DOM, manipulação de eventos, e facilitar o trabalho com AJAX.
+
+    * Para referenciar o jQuery no código js podemos tanto escrever "jQuery"
+    ou "$" que é o método mais comum *
+
+    * Outra vantagem do jQuery é o encadeamento de chamadas *
+
+    * Quando utilizamos o get(índice) ele nos retorna o elemento da dom de fato, já que por padrão o jQuery trabalha com o padrão "decorator", dessa forma, quando referenciamos uma div por exemplo, utilizando "$('div')" só é possível realizar operações como "hide / show / etc" pois essas estão presentes num objeto que engloba a div propriamente dita *
+
+    * Outra característica do jQuery é a facilidade que se tem para criar plugins. Para isso basta criar uma função em "$.fn.nomeDaFuncao", e para que também se possa encadear outras funções na função criada basta retornar o "this" ao final da função *
+
+Aula 350 (Selecionando Elementos #01):
+
+    Para selecionar elementos na DOM podemos tanto trabalhar com os seletores css padrão (".", "#", "*", "tag", "[]", etc...) como trabalhar com seletores exclusivos do jQuery.
+
+    * É possível também referenciar um diretamente um elemento da dom no jQuery utilizando os seletores padrões do HTML *
+
+Aula 352/353 (Modificando HTML):
+
+    A primeira maneira apresentada de se modificar a DOM é através da função "append", com ela podemos incluir um elemento na DOM, por exemplo ($('referencia').append('<p>Incluso</p>)), desta forma inserimos um parágrafo
+
+    * Quando usamos a notação de tags (</>) do HTML no parâmetro do jQuery estamos indicando que queremos criar essa tag, quando escrita somente a tag a intenção é selecionar esse tipo de tag na DOM *
+
+    * Também é possível encadear chamadas para adicionar elementos na DOM *
+
+    *
+        .apend (acrescenta ao final)
+        .prepend (acrescenta antes)
+        .html (substitui o elemento)
+        .text (acrescenta o texto literal na DOM, sem interpretar elemento)
+        .apendTo e .prependTo (fazem basicamente o mesmo do apend e prepend, só muda que o conteúdo é passado como primeiro parâmetro e o seletor como segundo)
+        .before e .after (adicionam o conteúdo antes/depois do elemento referenciado) 
+        .insertBefore e .insertAfter" (fazem o mesmo invertendo a ordem dos parâmetros)
+        .wrap (envolve o elemento referenciado no elemento informado no segundo parâmetro)
+        .wrapAll (envolve todos os elementos filtrados no elemento do segundo parâmetro)
+        .empty (esvazia o elemento)
+        .prev (seleciona o anterior ao referenciado)
+        .replaceAll (substitui todos elementos) replaceWith(sintaxe invertida)
+    *
+
+    * Também é possível realizar uma alteração em um grupo de elementos que sejam filtrados pelo mesmo seletor *
+
+Aula 356 (Manipulação de Atributos):
+
+    Para acessar um atributo utilizando jQuery utilizamos a função ".attr(1,2)" que se receber somente 1 parâmetro irá retornar o valor daquele atributo e se receber 2 parâmetros irá editar ou setar o valor para o atributo informado no 1º parâmetro
+
+    Para remover um atributo utilizamos ".removeAttr('nome')"
+    Também podemos incluir mais de um atributo no elemento utilizando um objeto
+
+Aula 357 (Manipulando de CSS):
+
+    Para acessar o valor de um atributo css utilizamos a função ".css('atributo')" desta forma, se esse atributo estiver definido o seu valor será retornado
+
+    Também podemos alterar o atributo utilizando a mesma função, basta colocar o novo valor a ser definido como 2º parâmetro da função (Esse valor também pode ser uma função callback)
+
+    Podemos também alterar um conjunto de propriedades utilizando um objeto
+    
+    Podemos adicionar classes utilizando o ".addClass()" e podemos remover com ".removeClass()"
+
+    ".toggleClass('nome')" adiciona se não tiver e remove se tiver.
+
+    Podemos verificar se um elemento possui uma classe utilizando ".hasClass()"
+
+Aula 358/359/360 (Eventos):
+
+    Para trabalharmos com eventos no jQuery podemos utilizar tanto a função que detecta o evento diretamente como "mousemove(func)" para detectar o movimento do mouse, ou utilizamos a função "on(evento, função)" que recebe o evento (ou OS EVENTOS) no primeiro parametro e a função a ser executada no segundo.
+    
+    A função "off()" "desativa" a função on.
+
+    Eventos citados na aula: 
+        mousemove
+        mouseover
+        mouseleave
+        click
+        keyup
+        keydown
+        keypress
+        hover(função ao entrar, função ao sair)
+        one (evento, callback) ** a função one só é executada 1 vez.
+        dblclick
+        resize ** geralmente aplicado ao objeto window
+        select
+
+    Algumas funções (senão todas) de eventos recebem por padrão o parâmetro 'e' (utilizado convencionalmente para denominar o event), e associados a ele temos algumas propriedades: 
+
+    * e.target: retorna o elemento que acionou o evento
+    * e.relatedTarget: retorna o elemento relacionado ao que acionou o evento
+    * e.type: retorna o tipo de evento
+    * e.which: quando for um evento de teclado retorna o código da tecla, e se for de mouse retorna o botão pressionado na hora do evento
+    * e.metaKey: retorna true ou false se a tecla win/mac estiver pressionada na hora que o evento foi acionado
+    * e.pageX/Y: retorna a posição do cursor na página no momento do evento
+    * e.clientX/Y: retorna a posição do cursor na tela inteira no momento do evento
+    * e.data: permite enviar um objeto no momento que acontecer um evento, e esse objeto pode ser consultado posteriormente com essa propriedade
+
+Aula 361/362 (Animações):
+
+    Para fazer animações utilizando o jQuery podemos usar animações pré-definidas
+    como as apresentadas na aula:
+        hide/show (Função de alternância: toggle())
+        fadeOut/fadeIn (Função de alternância: fadeToggle())
+        slideUp/slideDown (Função de alternância: slideToggle())
+    Ou utilizar a função "animate" que serve para manipular atributos css de forma mais livre.
+
+Aula 363 (Plugins):
+
+    * Algo importante de se fazer ao criar um plugin jQuery é colocá-lo dentro de uma função que proteja o caractere "$", utilizando a seguinte sintaxe:
+        
+        "(function($){
+            $.fn.nomeDoPlugin = function (parametros) {
+                **código...**
+                return this********
+            }
+        })(jQuery)"
+
+    Desta forma, não irá ter risco de voce referenciar um objeto com nome "$" acidentalmente.
+
+    *Para termos parâmetros com valores padrão utilizamos a propriedade "$.extend"
+
+    ***** É sempre recomendado colocar o "return this" ao final do plugin para que possa haver o encadeamento de próximas chamadas jQuery
+
+_------------------------------CAPÍTULO-BOOTSTRAP------------------------------_
+
+Aula 371 (Espaços):
+
+    * Os espaços pré-definidos pelo bootstrap vão de 1 a 5
+
+    Classes utilizadas na aula:
+        mb-5: margin-bottom
+        m-4: margin
+        py-4: padding (eixo Y)
+        pt-5: padding-top
+
+Aula 374 (Flexbox):
+
+    *Para habilitar o flexbox com bootstrap usamos a classe "d-flex"
+    
+    *Também temos a opção de trabalhar com responsividade com alguns valores de classes pré-definidas:
+        sm: só é aplicado para disp. a partir do tamanho pequeno (>=576px)
+        md: só é aplicado para disp. a partir do tamanho medio (>=768px)
+        lg: só é aplicado para disp. a partir do tamanho grande (>=992px)
+        xl:só é aplicado para disp. a partir do tamanho extra grande (>=1200px)
+
+Aula 375 (Imagens):
+
+    Para alinhar uma imagem ao centro da tela utilizamos as classes "mx-auto" e "d-block"
+
+    img-thumbnail: coloca um pequeno estilo de borda na imagem e a torna fluida
+    img-fluid: faz com que a imagem se redimensione de acordo com seu parent
+
+Aula 377/382 (Sistema de Grid):
+
+    **Principal recurso do Bootstrap**
+
+    *O espaço horizontal do bootstrap é dividido em 12 colunas
+    
+    *Para forçar uma quebra de linha antes dos 12 espaços estarem ocupados basta usar uma div vazia com a classe "w-100" que significa que ocupara 100% da largura disponivel.
+
+    *Podemos alterar a ordem das linhas utilizando a classe "order-nº" que significa que quanto menor o número (esse número vai de 1 a 12) ele será exibido antes dos outros.
+        Se na mesma linha tiver um elemento que tem e outro que não tem a classe "order", o elemento que não tem terá prioridade na exibição
+    
+    *Podemos deslocar um elemento utilizando a classe "offset-nº"
+
+    *O sistema de alinhamento do bootstrap é baseado no flexbox, o que nos permite utilizar as classes do flexbox nos elementos bootstrap
+    
+    Classes:
+        container: cria um container com largura limitada
+        container-fluid: cria um container que ocupa 100% da largura disponível
+        row: cria uma linha
+        col: cria uma coluna
+        col-nº: cria uma coluna que ocupa o número indicado de espaços
+
+Aula 383 (Botões):
+
+    Para utilizarmos botoes no bootstrap basta criar um botão html com a classe "btn"
+
+    SubClasses btn:
+        btn-nomeDaCor: Irá deixar o botão na cor pré-definida
+        btn-outline-nomeDaCor: Botão sem preenchimento, só aplica cor com hover
+
+    Atributos btn:
+        disabled: cria um botão não clicável
+        data-toggle: botão com estado (ativo/inativo)
+
+    *Também podemos criar um grupo de botões utilizando uma div com a classe "btn-group", dentro dela colocamos os botões
+
+    *Para criar um botão dropdown temos que criar uma div com a classe "dropdown", depois definir o botão que irá ativar o dropdown com a classe "dropdown-toggle" e o atributo "data-toggle='dropdown'" e em seguida criar uma div com a classe "dropdown-menu" com os links do dropdown contendo a classe "dropdown-item".
+
+Aula 384 (Barra de Progresso):
+
+    Para criar uma progressBar utilizando bootstrap nós precisamos de uma div com a classe "progress". Dentro dela colocamos 1 ou mais divs com a classe "progress-bar" e o atributo "style='width: nº%'" que indicará o tamanho daquela parte. 
+    *É possível colocar mais de 1 progress-bar dentro da div progress.
+    *Podemos aplicar cores a progress-bar, mas por padrão é escolhido a cor azul
+    *Podemos aplicar o estilo "listrado" à progress-bar utilizando a classe "progress-bar-striped"
+
+Aula 385 (Alertas):
+
+    *Para trabalhar com alertas no bootstrap utilizamos a classe "alert"
+    *Dentro dela podemos ter links utilizando a classe "alert-link"
+    *Podemos ter uma mensagem de alerta mais robusta com cabeçalho por exemplo utilizando a classe "alert-heading"
+
+Aula 386 (Paginação):
+
+    Para renderizar um paginador bootstrap utilizamos um componente "nav", dentro dele colocamos uma "ul" com a classe "pagination", dentro dessa ul que teremos os li com a classe "page-item" com os links para cada página.
+    *Para destacar um li basta acrescentar a classe "active".
+
+Aula 387 (Tooltip):
+
+    ** Para o tooltip funcionar é preciso chamar uma função JS! **
+    No exemplo da aula colocamos o tooltip em um botão, para isso usamos o atributo "data-toggle='tooltip'" e para indicar a posição do tooltip utilizamos o atributo "data-placement", e por fim, colocamos o texto do tooltip no atributo "title".
+
+Aula 388 (Slider):
+
+    Para fazermos um slider usando o bootstrap nós criamos uma div com a classe "carousel slide", id "slider" e o atributo data-ride="carousel".
+    Dentro dessa div colocamos outras divs com a classe "carousel-item" com as imagens a serem exibidas dentro
+    *A imagem que estará exibida no momento terá em sua div a classe "active"
+    Botões de navegação:
+        Para fazer a navegação do slider usamos links com o href apontando pro id do slider e as classes "carousel-control-prev" e o atributo "data-slide".
+        O ícone desse controle também já é pré-definido pelo bootstrap, basta criar um span com a classe "carousel-control-(next/prev)-icon"
+    
+Aula 390 (Formulário):
+
+    Para trabalharmos com form no bootstrap nós criamos um elemento form com a classe "container" ou "container-fluid". Dentro dele criamos divs com a classe "form-row" para fazer as linhas do formulário que por sua vez contém as divs com a classe "col" e por fim dentro da div col temos uma div com a classe "form-group" que pode por exemplo ser um par label-input.
+    * Para estilizar campos textuais como "input / select / textarea" usamos a classe "form-control"
+        ela possui estilo pré-definido, estado de foco entre outras vantagens...
+    * Para colocar um "símbolo" anexado ao início do input basta criar uma div com a classe "input-group"
+        e dentro dela colocar uma div com a classe "input-group-prepend" contendo o span com a classe "input-group-text" e o Texto ou símbolo.
+        Dentro da mesma div input-group basta acrescentar o elemento do input em si
+    
+--/_A partir deste ponto as anotações não foram transcritas para o caderno_/--

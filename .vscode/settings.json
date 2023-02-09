@@ -1,4 +1,5 @@
 {
     "html.preview.doubleClickToSwitchToEditor": true,
-    "html.preview.markEditorSelection": false
+    "html.preview.markEditorSelection": false,
+    "liveServer.settings.port": 5501
 }
