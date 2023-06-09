@@ -1,11 +1,6 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Caneta BIC Preta",
-      "price": 5.89
-    },
-    {
       "id": 2,
       "name": "Notebook",
       "price": 12000.99
@@ -19,6 +14,11 @@
       "id": 4,
       "name": "Samsung s20",
       "price": 5000
+    },
+    {
+      "name": "geladeira tsunami",
+      "price": "2009",
+      "id": 6
     }
   ]
 }
